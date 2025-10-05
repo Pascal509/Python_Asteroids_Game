@@ -10,6 +10,7 @@ Date: October 2025
 
 import pygame
 import random
+import math
 from circleshape import CircleShape
 from constants import *
 
@@ -32,15 +33,50 @@ class Asteroid(CircleShape):
             radius (float): Size of the asteroid
         """
         super().__init__(x, y, radius)
+        # Generate lumpy shape by creating random vertex offsets
+        self.shape_vertices = self._generate_lumpy_shape()
+        
+    def _generate_lumpy_shape(self):
+        """
+        Generate a lumpy, irregular shape for the asteroid.
+        
+        Returns:
+            list: List of pygame.Vector2 points forming the asteroid shape
+        """
+        vertices = []
+        num_vertices = random.randint(8, 12)  # Random number of vertices
+        
+        for i in range(num_vertices):
+            angle = (2 * math.pi * i) / num_vertices
+            # Add randomness to the radius for lumpy effect
+            variation = random.uniform(0.7, 1.3)
+            vertex_radius = self.radius * variation
+            
+            x = vertex_radius * math.cos(angle)
+            y = vertex_radius * math.sin(angle)
+            vertices.append(pygame.Vector2(x, y))
+            
+        return vertices
+
+    def get_world_vertices(self):
+        """
+        Get the asteroid vertices in world coordinates.
+        
+        Returns:
+            list: List of world-space vertex positions
+        """
+        return [self.position + vertex for vertex in self.shape_vertices]
 
     def draw(self, screen):
         """
-        Draw the asteroid as a white circle outline.
+        Draw the asteroid as a lumpy polygon outline.
         
         Args:
             screen: pygame surface to draw on
         """
-        pygame.draw.circle(screen, "white", self.position, self.radius, 2)
+        world_vertices = self.get_world_vertices()
+        if len(world_vertices) >= 3:  # Need at least 3 points for a polygon
+            pygame.draw.polygon(screen, "white", world_vertices, 2)
 
     def update(self, dt):
         """
@@ -50,6 +86,7 @@ class Asteroid(CircleShape):
             dt (float): Delta time since last frame
         """
         self.position += self.velocity * dt
+        self.wrap_around_screen()  # Enable screen wrapping
 
     def split(self):
         """

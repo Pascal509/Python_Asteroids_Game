@@ -30,6 +30,8 @@ class Shot(CircleShape):
             y (float): Starting y position
         """
         super().__init__(x, y, SHOT_RADIUS)
+        self.lifetime = 3.0  # Bullet disappears after 3 seconds
+        self.age = 0.0
 
     def draw(self, screen):
         """
@@ -48,3 +50,11 @@ class Shot(CircleShape):
             dt (float): Delta time since last frame
         """
         self.position += self.velocity * dt
+        self.age += dt
+        
+        # Remove bullet if it's too old
+        if self.age > self.lifetime:
+            self.kill()
+            
+        # Optional: wrap around screen (bullets come back from other side)
+        # self.wrap_around_screen()

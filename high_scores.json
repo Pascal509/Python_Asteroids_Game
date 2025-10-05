@@ -1,0 +1,72 @@
+{
+  "high_scores": [
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32843
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32860
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32877
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32893
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32909
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32925
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32942
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32958
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32975
+    },
+    {
+      "name": "Player",
+      "score": 3778,
+      "wave": 2,
+      "date": 32992
+    }
+  ],
+  "player_stats": {
+    "games_played": 836,
+    "total_score": 1513142,
+    "best_wave": 2,
+    "asteroids_destroyed": 86,
+    "enemies_destroyed": 0,
+    "total_time_played": 0
+  }
+}

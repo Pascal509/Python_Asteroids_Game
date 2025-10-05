@@ -1,4 +1,5 @@
-# Asteroids Game Dependencies
+# Asteroids Game Dependencies - Phase 4 Enhanced
 # Install with: pip install -r requirements.txt
 
-pygame>=2.0.0  # Core game library for graphics, sound, and input
+pygame>=2.0.0   # Core game library for graphics, sound, and input
+numpy>=1.21.0   # For audio synthesis and mathematical operations
