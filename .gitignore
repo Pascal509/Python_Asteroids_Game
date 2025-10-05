@@ -1,24 +1,66 @@
-# Virtual environment
+# Asteroids Game - Git Ignore File
+
+# Virtual environments
 venv/
 env/
 .venv/
+ENV/
+env.bak/
+venv.bak/
 
 # Python cache files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.py[cod]
+*$py.class
 .Python
 
-# IDE files
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
+.spyderproject
+.spyproject
+.ropeproject
 
-# OS files
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Game specific
+# Testing and coverage
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+
+# Logs
 *.log
+
+# Game specific files (if any)
+screenshots/
+save_games/
